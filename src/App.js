@@ -7,10 +7,13 @@ function App() {
     const keyboard = new Audio(sound);
     keyboard.play();
   };
+
+  const showVolumeValue = document.getElementById("showVolumeValue");
+  const manipulateVolume = document.getElementById("manipulateVolume");
+
   return (
     <div className="App">
       <div className="drumMain">
-        {/* drum buttons */}
         <div className="drumButtons">
           {sounds.map(({ key, sound }) => {
             return (
@@ -21,20 +24,35 @@ function App() {
           })}
         </div>
         {/* controls */}
-        <div className="remoteDrum">
-          <input type="range" min="1" max="2" className="onOff" />
+        <div className="controls">
+          <div className="switches">
+            {" "}
+            <p>On/Off</p>
+            <input
+              type="range"
+              className="onOff"
+              min="1"
+              max="2"
+            />
+          </div>
+
+          {/* volume controls */}
           <span className="volumeMain">
-            <p className="showVolumeValue">showVolumeValue </p>
             <div className="manipulateVolume">
+              <p id="showVolumeValue">showVolumeValue </p>
               <input
                 type="range"
                 min="0"
                 max="100"
                 className="manipulateVolume"
+                id="manipulateVolume"
               />
             </div>
           </span>
-          <div className="options">options</div>
+          <div className="options">
+            <p>Options</p>
+            <input type="range" className="options" min="1" max="2" />
+          </div>
         </div>
       </div>
     </div>
