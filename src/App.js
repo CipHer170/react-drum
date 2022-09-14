@@ -1,23 +1,46 @@
+import { useState } from "react";
 import "./App.css";
-// import soundQ from "./sounds/qkeyboard.wav";
-import sounds from "./sounds/sounds.js";
+import sounds from "./sounds/Sounds.js";
+import Switch from "@mui/material/Switch";
 
 function App() {
+  const [vol, setVol] = useState(50);
+  const [switchState, setSwitchState] = useState(true);
+  const [switchOption, setSwitchOption] = useState(true);
+
+  // console.log(vol);
+
+  const typeVol = vol / 100;
+
+  console.log(switchState);
+
   const start = (sound) => {
     const keyboard = new Audio(sound);
     keyboard.play();
+    if (switchState) {
+      keyboard.volume = typeVol;
+    }
+    if (!switchState) {
+      keyboard.volume = 0;
+    }
   };
-
-  const showVolumeValue = document.getElementById("showVolumeValue");
-  const manipulateVolume = document.getElementById("manipulateVolume");
 
   return (
     <div className="App">
-      <div className="drumMain">
-        <div className="drumButtons">
-          {sounds.map(({ key, sound }) => {
+      <div id="drum-machine">
+        <div className="drumButtons" id="display">
+          {sounds?.map(({ key, sound1, sound2 }) => {
+            // const  = sound;
             return (
-              <button key={key} onClick={start.bind(this, sound)}>
+              <button
+                className="drum-pad"
+                onClick={
+                  switchOption
+                    ? start.bind(this, sound1)
+                    : start.bind(this, sound2)
+                }
+                key={key}
+              >
                 {key}
               </button>
             );
@@ -27,31 +50,32 @@ function App() {
         <div className="controls">
           <div className="switches">
             {" "}
-            <p>On/Off</p>
-            <input
-              type="range"
-              className="onOff"
-              min="1"
-              max="2"
+            <p>Off/On</p>
+            <Switch
+              checked={switchState}
+              onChange={() => setSwitchState(!switchState)}
             />
           </div>
-
           {/* volume controls */}
-          <span className="volumeMain">
-            <div className="manipulateVolume">
-              <p id="showVolumeValue">showVolumeValue </p>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                className="manipulateVolume"
-                id="manipulateVolume"
-              />
-            </div>
-          </span>
+          <div className="manipulateVolume">
+            <p id="showVolumeValue"> volume {vol}</p>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              className="manipulateVolume"
+              id="manipulateVolume"
+              onChange={(e) => setVol(e.target.value)}
+              value={vol}
+            />
+          </div>
+          {/* options */}
           <div className="options">
             <p>Options</p>
-            <input type="range" className="options" min="1" max="2" />
+            <Switch
+              checked={switchOption}
+              onChange={() => setSwitchOption(!switchOption)}
+            />
           </div>
         </div>
       </div>

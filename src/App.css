@@ -12,12 +12,13 @@
   pointer-events: none;
 }
 
+/* 
 audio {
   height: 100%;
   width: 100%;
-}
+} */
 
-.drumMain {
+#drum-machine {
   width: 600px;
   height: 300px;
   border: 1px solid blue;
@@ -27,7 +28,7 @@ audio {
 .drumButtons {
   width: 50%;
   height: 100%;
-  background-color: #666;
+  background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,10 +36,15 @@ audio {
 }
 
 button {
-  width: 76px;
+  position: relative;
+  margin-left: 20px;
+  width: 60px;
   height: 50px;
-  background-color: #282c34;
+  background-color: #fff;
+  color: #666;
+  user-select: none;
 }
+
 
 .controls {
   width: 50%;
@@ -52,7 +58,7 @@ button {
   background-color: yellow;
 }
 
-.volumeMain {
+.manipulateVolume {
   background-color: #666;
 }
 

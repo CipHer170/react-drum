@@ -9,15 +9,44 @@ import soundC from "../sounds/ckeyboard.wav";
 import soundA from "../sounds/akeyboard.wav";
 
 const sounds = [
-  { key: "q", sound: soundQ },
-  { key: "w", sound: soundW },
-  { key: "e", sound: soundE },
-  { key: "a", sound: soundA },
-  { key: "s", sound: soundS },
-  { key: "d", sound: soundD },
-  { key: "z", sound: soundZ },
-  { key: "x", sound: soundX },
-  { key: "c", sound: soundC },
+  { key: "q", sound1: soundQ, sound2: soundC },
+  { key: "w", sound1: soundW, sound2: soundX },
+  { key: "e", sound1: soundE, sound2: soundZ },
+  { key: "a", sound1: soundA, sound2: soundD },
+  { key: "s", sound1: soundS, sound2: soundS },
+  { key: "d", sound1: soundD, sound2: soundA },
+  { key: "z", sound1: soundZ, sound2: soundE },
+  { key: "x", sound1: soundX, sound2: soundW },
+  { key: "c", sound1: soundC, sound2: soundQ },
 ];
 
 export default sounds;
+
+// api version;
+
+// import React, { useEffect, useState } from "react";
+
+// function Sounds() {
+//   const [data, setData] = useState();
+
+//   useEffect(() => {
+//     const getData = async () => {
+//       const res = await fetch("https://s3.amazonaws.com/freecodecamp/drums/");
+//       const data = await res.json();
+//       setData(data);
+//     };
+//     getData();
+//   });
+
+//   const start = (sound) => {
+//     const keyboard = new Audio(sound);
+//     keyboard.play();
+//     keyboard.volume = 0.75;
+//   };
+
+//   return data?.map(({ key, sound }) => {
+//     return <button onClick={start.bind(this, sound)}>{key}</button>;
+//   });
+// }
+
+// export default Sounds;
