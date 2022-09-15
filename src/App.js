@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import sounds from "./sounds/Sounds.js";
+import sounds from "./sounds/sounds.js";
 import Switch from "@mui/material/Switch";
 
 function App() {
