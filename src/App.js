@@ -8,8 +8,6 @@ function App() {
   const [switchState, setSwitchState] = useState(true);
   const [switchOption, setSwitchOption] = useState(true);
 
-  // console.log(vol);
-
   const typeVol = vol / 100;
 
   console.log(switchState);
@@ -30,9 +28,9 @@ function App() {
       <div id="drum-machine">
         <div className="drumButtons" id="display">
           {sounds?.map(({ key, sound1, sound2 }) => {
-            // const  = sound;
             return (
               <button
+                id="drum-pad"
                 className="drum-pad"
                 onClick={
                   switchOption
@@ -50,15 +48,16 @@ function App() {
         <div className="controls">
           <div className="switches">
             {" "}
-            <p>Off/On</p>
+            <p>{switchState ? "On" : "Off"}</p>
             <Switch
+              className="switch"
               checked={switchState}
               onChange={() => setSwitchState(!switchState)}
             />
           </div>
           {/* volume controls */}
+          <p id="showVolumeValue">Volume {vol} </p>
           <div className="manipulateVolume">
-            <p id="showVolumeValue"> volume {vol}</p>
             <input
               type="range"
               min="0"
@@ -73,6 +72,7 @@ function App() {
           <div className="options">
             <p>Options</p>
             <Switch
+              className="switch"
               checked={switchOption}
               onChange={() => setSwitchOption(!switchOption)}
             />
