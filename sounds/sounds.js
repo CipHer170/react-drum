@@ -1,23 +1,49 @@
-import soundQ from "./qkeyboard.wav";
-import soundW from "./wkeyboard.wav";
-import soundE from "./ekeyboard.wav";
-import soundS from "./skeyboard.wav";
-import soundD from "./dkeyboard.wav";
-import soundZ from "./zkeyboard.wav";
-import soundX from "./xkeyboard.wav";
-import soundC from "./ckeyboard.wav";
-import soundA from "./akeyboard.wav";
-
 const sounds = [
-  { key: "q", sound1: soundQ, sound2: soundC },
-  { key: "w", sound1: soundW, sound2: soundX },
-  { key: "e", sound1: soundE, sound2: soundZ },
-  { key: "a", sound1: soundA, sound2: soundD },
-  { key: "s", sound1: soundS, sound2: soundS },
-  { key: "d", sound1: soundD, sound2: soundA },
-  { key: "z", sound1: soundZ, sound2: soundE },
-  { key: "x", sound1: soundX, sound2: soundW },
-  { key: "c", sound1: soundC, sound2: soundQ },
+  {
+    key: "Q",
+    sound1: "https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3",
+    sound2: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3",
+  },
+  {
+    key: "W",
+    sound1: "https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3",
+    sound2: "https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3",
+  },
+  {
+    key: "E",
+    sound1: "https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3",
+    sound2: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
+  },
+  {
+    key: "A",
+    sound1: "https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3",
+    sound2: "https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3",
+  },
+  {
+    key: "S",
+    sound1: "https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3",
+    sound2: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
+  },
+  {
+    key: "D",
+    sound1: "https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3",
+    sound2: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
+  },
+  {
+    key: "Z",
+    sound1: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
+    sound2: "https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3",
+  },
+  {
+    key: "X",
+    sound1: "https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3",
+    sound2: "https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3",
+  },
+  {
+    key: "C",
+    sound1: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3",
+    sound2: "https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3",
+  },
 ];
 
 export default sounds;
