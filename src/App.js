@@ -1,21 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import sounds from "./sounds/Sounds.js";
 import Switch from "@mui/material/Switch";
 
 function App() {
+  const [showButton, setShowButton] = useState("");
   const [vol, setVol] = useState(50);
   const [switchState, setSwitchState] = useState(true);
   const [switchOption, setSwitchOption] = useState(true);
 
-  // console.log(vol);
-
   const typeVol = vol / 100;
 
-  console.log(switchState);
+  useEffect(() => {
+    handleButton();
+  }, []);
+
+  const handleButton = () => {
+    document.addEventListener("keydown", (event) => {
+      start(event.key.toUpperCase());
+    });
+  };
 
   const start = (sound) => {
-    const keyboard = new Audio(sound);
+    const keyboard = document.getElementById(sound);
+    setShowButton(sound);
     keyboard.play();
     if (switchState) {
       keyboard.volume = typeVol;
@@ -28,20 +36,24 @@ function App() {
   return (
     <div className="App">
       <div id="drum-machine">
-        <div className="drumButtons" id="display">
-          {sounds?.map(({ key, sound1, sound2 }) => {
-            // const  = sound;
+        <div id="display">{showButton}</div>
+        <div className="drumButtons">
+          {sounds.map((sound) => {
             return (
               <button
+                key={sound.key}
+                onClick={() => {
+                  start(sound.key);
+                }}
                 className="drum-pad"
-                onClick={
-                  switchOption
-                    ? start.bind(this, sound1)
-                    : start.bind(this, sound2)
-                }
-                key={key}
+                id={sound.sound1}
               >
-                {key}
+                {sound.key}
+                <audio
+                  src={switchOption ? sound.sound1 : sound.sound2}
+                  className="clip"
+                  id={sound.key}
+                ></audio>
               </button>
             );
           })}
@@ -50,15 +62,16 @@ function App() {
         <div className="controls">
           <div className="switches">
             {" "}
-            <p>Off/On</p>
+            <p>{switchState ? "On" : "Off"}</p>
             <Switch
+              className="switch"
               checked={switchState}
               onChange={() => setSwitchState(!switchState)}
             />
           </div>
           {/* volume controls */}
+          <p id="showVolumeValue">Volume {vol} </p>
           <div className="manipulateVolume">
-            <p id="showVolumeValue"> volume {vol}</p>
             <input
               type="range"
               min="0"
@@ -73,6 +86,7 @@ function App() {
           <div className="options">
             <p>Options</p>
             <Switch
+              className="switch"
               checked={switchOption}
               onChange={() => setSwitchOption(!switchOption)}
             />

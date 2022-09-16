@@ -1,10 +1,13 @@
 .App {
   text-align: center;
-  background-color: #61dafb;
+  background-color: #8d8d8d;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 700;
+  width: 100%;
+
 }
 
 .App-logo {
@@ -12,23 +15,17 @@
   pointer-events: none;
 }
 
-/* 
-audio {
-  height: 100%;
-  width: 100%;
-} */
-
 #drum-machine {
   width: 600px;
   height: 300px;
-  border: 1px solid blue;
+  border: 2px solid #ffa500;
+  background-color: #b3b3b3;
   display: flex;
 }
 
 .drumButtons {
-  width: 50%;
+  width: 60%;
   height: 100%;
-  background-color: red;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,31 +34,32 @@ audio {
 
 button {
   position: relative;
-  margin-left: 20px;
-  width: 60px;
-  height: 50px;
-  background-color: #fff;
-  color: #666;
+  margin: 5px 15px;
+  width: 80px;
+  height: 60px;
+  background-color: #808080;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  box-shadow: 5px 3px 10px 0.5px rgba(0, 0, 0);
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
+button:hover {
+  background-color: #ffa500;
+  box-shadow: 5px 3px 10px 0.5px rgba(0, 0, 0);
+
+}
 
 .controls {
-  width: 50%;
-  background-color: aquamarine;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  width: 40%;
 }
 
-.switches {
-  background-color: yellow;
-}
+#display {
+  width: 20px;
 
-.manipulateVolume {
-  background-color: #666;
-}
-
-.options {
-  background-color: lightcyan;
 }
