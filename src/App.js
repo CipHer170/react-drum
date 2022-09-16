@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import sounds from "./sounds/Sounds.js";
+import sounds from "./sounds/sounds.js";
 import Switch from "@mui/material/Switch";
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
   return (
     <div className="App">
       <div id="drum-machine">
+
         <div id="display">{showButton}</div>
         <div className="drumButtons">
           {sounds.map((sound) => {
@@ -45,6 +46,13 @@ function App() {
                 onClick={() => {
                   start(sound.key);
                 }}
+=======
+        <div className="drumButtons" id="display">
+          {sounds?.map(({ key, sound1, sound2 }) => {
+            return (
+              <button
+                id="drum-pad"
+>>>>>>> d09c53f6f413b4e66d27071f9b420a360d907a97
                 className="drum-pad"
                 id={sound.sound1}
               >
