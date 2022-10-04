@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-drum/static/css/main.4e9177d9.css",
+    "main.js": "/react-drum/static/js/main.bca495ea.js",
+    "index.html": "/react-drum/index.html",
+    "main.4e9177d9.css.map": "/react-drum/static/css/main.4e9177d9.css.map",
+    "main.bca495ea.js.map": "/react-drum/static/js/main.bca495ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e9177d9.css",
+    "static/js/main.bca495ea.js"
+  ]
+}
